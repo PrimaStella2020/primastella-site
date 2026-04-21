@@ -3,156 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>東広島 西条 イタリアン | PrimaStella</title>
+<title>PrimaStella</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-margin:0;
-font-family:sans-serif;
-background:#111;
+body{margin:0;font-family:'Noto Sans JP',sans-serif;background:#f5f5f5;color:#333;}
+
+/* ヘッダー */
+header{
+position:absolute;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px;
 color:#fff;
+z-index:10;
 }
 
+nav a{
+margin:0 10px;
+color:#fff;
+text-decoration:none;
+}
+
+/* ヒーロー */
 .hero{
 height:100vh;
-background:url("interior.jpg") center/cover no-repeat;
+background:url("ここに外観画像URL") center/cover no-repeat;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+color:#fff;
 position:relative;
 }
 
 .hero::before{
 content:"";
 position:absolute;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.5);
 }
 
-.hero h1{
-position:relative;
-z-index:1;
-font-size:32px;
-}
-
-.hero p{
-position:relative;
-z-index:1;
-}
+.hero h1{font-size:48px;z-index:1;}
+.hero p{z-index:1;margin-bottom:20px;}
 
 .btn{
-position:relative;
 z-index:1;
-display:block;
-margin:10px;
-padding:14px;
-background:#e91e63;
-color:#fff;
+padding:12px 20px;
+margin:5px;
+border-radius:5px;
 text-decoration:none;
-border-radius:30px;
-width:260px;
+color:#fff;
+display:inline-block;
+}
+
+.tel{background:#8b0000;}
+.line{background:#00c300;}
+.insta{background:#c13584;}
+
+/* 特徴 */
+.features{
+display:flex;
+justify-content:space-around;
+padding:40px 20px;
+background:#fff;
 text-align:center;
 }
 
-section{
+/* メニュー */
+.menu{
 padding:50px 20px;
-max-width:1000px;
-margin:auto;
+text-align:center;
 }
 
-.gallery{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:10px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
+gap:15px;
 }
 
 .card{
-background:#222;
-padding:20px;
-margin:10px 0;
+background:#fff;
 border-radius:10px;
+overflow:hidden;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+}
+
+/* セクション */
+.section-dark{
+background:#111;
+color:#fff;
+padding:60px 20px;
+text-align:center;
+}
+
+/* 口コミ */
+.reviews{
+display:flex;
+gap:10px;
+padding:40px;
+}
+
+.review{
+background:#fff;
+padding:20px;
+border-radius:10px;
+flex:1;
+}
+
+/* アクセス */
+.access{
+display:flex;
+padding:40px;
+gap:20px;
+}
+
+/* フッター */
+footer{
+background:#5a1a1a;
+color:#fff;
+padding:20px;
+text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<!-- トップ -->
+<header>
+<h2>PrimaStella</h2>
+<nav>
+<a href="#">ホーム</a>
+<a href="#">メニュー</a>
+<a href="#">店内</a>
+<a href="#">アクセス</a>
+</nav>
+</header>
+
 <section class="hero">
-<h1>西条で外さないイタリアン</h1>
-<p>女子会・デート・ファミリーに人気</p>
+<h1>西条で見つけた<br>大人のイタリアン</h1>
+<p>こだわりの料理と心地よい空間</p>
 
-<a href="tel:0824233067" class="btn">📞 今すぐ電話予約</a>
-<a href="https://lin.ee/NRcZyQu" class="btn">💬 LINE予約</a>
-<a href="https://www.instagram.com/primastella2020" class="btn">📸 Instagram</a>
+<a href="tel:0824233067" class="btn tel">電話予約</a>
+<a href="https://lin.ee/NRcZyQu" class="btn line">LINE予約</a>
+<a href="https://www.instagram.com/primastella2020" class="btn insta">Instagram</a>
 </section>
 
-<!-- 料理 -->
-<section>
-<h2>人気メニュー</h2>
+<section class="features">
+<div>本格イタリアン</div>
+<div>豊富なドリンク</div>
+<div>女子会・デート</div>
+<div>駐車場あり</div>
+</section>
 
-<div class="gallery">
-<img src="pasta2.jpg">
-<img src="pasta1.jpg">
-<img src="pizza.jpg">
-<img src="dessert.jpg">
+<section class="menu">
+<h2>おすすめメニュー</h2>
+
+<div class="grid">
+<div class="card"><img src="パスタURL"><p>カルボナーラ</p></div>
+<div class="card"><img src="パスタURL"><p>トマトパスタ</p></div>
+<div class="card"><img src="ピザURL"><p>ピザ</p></div>
+<div class="card"><img src="デザートURL"><p>デザート</p></div>
 </div>
 </section>
 
-<!-- 店内 -->
-<section>
-<h2>店内・雰囲気</h2>
+<section class="section-dark">
+<h2>くつろぎの空間</h2>
+<p>落ち着いた店内で特別なひとときを</p>
+</section>
 
-<div class="gallery">
-<img src="interior.jpg">
-<img src="wine.jpg">
+<section class="menu">
+<div class="grid">
+<div class="card"><img src="ピザURL"></div>
+<div class="card"><img src="パスタURL"></div>
+<div class="card"><img src="パスタURL"></div>
 </div>
 </section>
 
-<!-- おすすめ -->
-<section>
-<h2>おすすめ</h2>
-
-<div class="card">濃厚カルボナーラ</div>
-<div class="card">海老トマトパスタ</div>
-<div class="card">生ハムピザ</div>
+<section class="reviews">
+<div class="review">デートで最高でした</div>
+<div class="review">ランチが安くて美味しい</div>
+<div class="review">また来たいお店</div>
 </section>
 
-<!-- 口コミ -->
-<section>
-<h2>お客様の声</h2>
-
-<div class="card">「雰囲気が良くてデートに最高」</div>
-<div class="card">「ランチのコスパが良くてまた来たい」</div>
-</section>
-
-<!-- アクセス -->
-<section>
-<h2>アクセス</h2>
-
-<div class="card">
-広島県東広島市西条上市町6-19<br>
-電話：082-423-3067
+<section class="access">
+<div>
+<h3>アクセス</h3>
+<p>広島県東広島市西条上市町6-19</p>
+<p>082-423-3067</p>
+</div>
+<div>
+<iframe src="https://maps.google.com/maps?q=東広島&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200"></iframe>
 </div>
 </section>
 
-<!-- 予約 -->
-<section>
-<h2>予約はこちら</h2>
-
-<a href="tel:0824233067" class="btn">📞 電話予約</a>
-<a href="https://lin.ee/NRcZyQu" class="btn">💬 LINE予約</a>
-</section>
+<footer>
+© PrimaStella
+</footer>
 
 </body>
 </html>
