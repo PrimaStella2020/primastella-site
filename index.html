@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrimaStella</title>
+<title>東広島 西条 イタリアン | PrimaStella</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
 
@@ -44,19 +44,38 @@ gap:10px;
 width:100%;
 border-radius:10px;
 }
+
+/* 口コミ */
+.review{
+background:#222;
+padding:20px;
+margin:10px;
+border-radius:10px;
+}
+
+/* 情報 */
+.info{
+background:#222;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
 </style>
 </head>
 
 <body>
 
+<!-- トップ -->
 <section class="hero">
 <h1>PrimaStella</h1>
+<p>西条で外さないイタリアン</p>
 
 <a href="tel:0824233067" class="btn">📞 電話予約</a>
 <a href="https://lin.ee/NRcZyQu" class="btn">💬 LINE予約</a>
 <a href="https://www.instagram.com/primastella2020" class="btn">📸 Instagram</a>
 </section>
 
+<!-- メニュー -->
 <section>
 <h2>人気メニュー</h2>
 
@@ -68,13 +87,56 @@ border-radius:10px;
 </div>
 </section>
 
+<!-- 店内 -->
 <section>
-<h2>店内</h2>
+<h2>店内・雰囲気</h2>
 
 <div class="gallery">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/wine.jpg">
 </div>
+</section>
+
+<!-- 口コミ -->
+<section>
+<h2>お客様の声</h2>
+
+<div class="review">「デートで使ったけど雰囲気が最高でした」</div>
+<div class="review">「ランチがコスパ良くてまた来たい」</div>
+<div class="review">「料理が全部美味しくてリピート確定」</div>
+</section>
+
+<!-- 店舗情報 -->
+<section>
+<h2>店舗情報</h2>
+
+<div class="info">
+<p>住所：広島県東広島市西条上市町6-19</p>
+<p>電話：082-423-3067</p>
+<p>営業時間：<br>
+ランチ 11:30〜14:30<br>
+ディナー 17:30〜21:00</p>
+<p>定休日：火曜・第2月曜</p>
+</div>
+</section>
+
+<!-- マップ -->
+<section>
+<h2>アクセス</h2>
+
+<iframe 
+src="https://maps.google.com/maps?q=東広島市西条上市町6-19&t=&z=15&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300" style="border:0;">
+</iframe>
+
+</section>
+
+<!-- 予約 -->
+<section>
+<h2>ご予約はこちら</h2>
+
+<a href="tel:0824233067" class="btn">📞 電話予約</a>
+<a href="https://lin.ee/NRcZyQu" class="btn">💬 LINE予約</a>
 </section>
 
 </body>
