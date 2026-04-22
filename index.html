@@ -22,6 +22,7 @@ background:#111;
 color:#fff;
 }
 
+/* HERO */
 .hero{
 height:100vh;
 background:url("https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg") center/cover;
@@ -35,16 +36,13 @@ padding:20px;
 
 .hero h1{
 font-size:48px;
-letter-spacing:2px;
 text-shadow:0 2px 10px rgba(0,0,0,0.6);
 margin:0;
 }
 
-.hero p{
-font-size:18px;
-opacity:0.9;
-}
+.hero p{opacity:0.9;font-size:18px;}
 
+/* BUTTON */
 .btn{
 margin:10px;
 padding:14px 20px;
@@ -57,19 +55,19 @@ max-width:300px;
 text-align:center;
 }
 
-.btn.tel{background:#e91e63;color:#fff;}
-.btn.line{background:#00c300;color:#fff;}
-.btn.ig{background:#333;color:#fff;}
+.tel{background:#e91e63;color:#fff;}
+.line{background:#00c300;color:#fff;}
+.ig{background:#333;color:#fff;}
 
+/* SECTION */
 section{
 padding:50px 20px;
 text-align:center;
 }
 
-h2{
-margin-bottom:20px;
-}
+h2{margin-bottom:20px;}
 
+/* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -81,31 +79,57 @@ width:100%;
 border-radius:10px;
 }
 
-.review{
-background:#222;
-padding:20px;
-margin:10px;
-border-radius:10px;
-text-align:left;
-}
-
-.review strong{
-display:block;
-margin-bottom:5px;
-}
-
+/* INFO */
 .info{
 background:#222;
 padding:20px;
 border-radius:10px;
-margin-top:20px;
 text-align:left;
 }
 
-iframe{
-border:0;
-border-radius:10px;
+/* REVIEW CAROUSEL */
+.review-wrapper{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+gap:15px;
+padding:10px 0;
 }
+
+.review{
+min-width:80%;
+flex:0 0 auto;
+scroll-snap-align:center;
+background:#222;
+padding:20px;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+text-align:left;
+}
+
+.review:hover{transform:scale(1.02);}
+
+/* STICKY CTA */
+.sticky-cta{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+z-index:999;
+}
+
+.sticky-cta a{
+flex:1;
+padding:15px;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
+}
+
+.cta-tel{background:#e91e63;color:#fff;}
+.cta-line{background:#00c300;color:#fff;}
 </style>
 </head>
 
@@ -121,27 +145,18 @@ border-radius:10px;
 <a href="https://www.instagram.com/primastella2020" class="btn ig">📸 Instagram</a>
 </section>
 
-<!-- メニュー -->
+<!-- MENU -->
 <section>
 <h2>人気メニュー</h2>
 <div class="gallery">
-<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg" alt="パスタ1">
-<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta2.jpg" alt="パスタ2">
+<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg" alt="パスタ">
+<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta2.jpg" alt="パスタ">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pizza.jpg" alt="ピザ">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/dessert.jpg" alt="デザート">
 </div>
 </section>
 
-<!-- 店内 -->
-<section>
-<h2>店内・雰囲気</h2>
-<div class="gallery">
-<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg" alt="店内">
-<img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/wine.jpg" alt="ワイン">
-</div>
-</section>
-
-<!-- コース・特徴 -->
+<!-- FEATURES -->
 <section>
 <h2>特徴</h2>
 <div class="info">
@@ -152,63 +167,71 @@ border-radius:10px;
 </div>
 </section>
 
-<!-- 口コミ -->
+<!-- REVIEWS -->
 <section>
 <h2>お客様の声</h2>
 
-<div class="review">
+<div class="review-wrapper">
+
+<div class="review" id="r1">
 <strong>★★★★★ 30代女性</strong>
-「デートで使ったけど雰囲気が最高でした」
+デートで使ったけど雰囲気が最高でした
 </div>
 
-<div class="review">
+<div class="review" id="r2">
 <strong>★★★★★ 40代男性</strong>
-「ランチがコスパ良くてまた来たい」
+ランチがコスパ良くてまた来たい
 </div>
 
-<div class="review">
+<div class="review" id="r3">
 <strong>★★★★★ 20代女性</strong>
-「料理が全部美味しくてリピート確定」
+料理が全部美味しくてリピート確定
+</div>
+
 </div>
 </section>
 
-<!-- 店舗情報 -->
+<!-- TOP REVIEW -->
+<section>
+<h2>⭐ 一番選ばれている声</h2>
+<div class="review" style="border:2px solid gold;">
+<strong>★★★★★ 30代女性</strong>
+デートで使ったけど雰囲気が最高でした
+</div>
+</section>
+
+<!-- INFO -->
 <section>
 <h2>店舗情報</h2>
-
 <div class="info">
-<p>住所：広島県東広島市西条上市町6-19 2F</p>
+<p>広島県東広島市西条上市町6-19 2F</p>
 <p>電話：082-423-3067</p>
-
-<p>
-営業時間：<br>
-ランチ 11:30〜14:30<br>
-ディナー 17:30〜21:00
-</p>
-
+<p>ランチ 11:30〜14:30</p>
+<p>ディナー 17:30〜21:00</p>
 <p>定休日：火曜・第2月曜</p>
 </div>
 </section>
 
-<!-- アクセス -->
+<!-- MAP -->
 <section>
 <h2>アクセス</h2>
-
 <iframe
 src="https://maps.google.com/maps?q=東広島市西条上市町6-19 2F&t=&z=15&ie=UTF8&iwloc=&output=embed"
-width="100%" height="300">
-</iframe>
-
+width="100%" height="300"></iframe>
 </section>
 
-<!-- 予約 -->
+<!-- CTA -->
 <section>
-<h2>今すぐ予約</h2>
-
+<h2>ご予約</h2>
 <a href="tel:0824233067" class="btn tel">📞 電話予約</a>
 <a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
-
 </section>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+<a href="tel:0824233067" class="cta-tel">📞 電話</a>
+<a href="https://lin.ee/NRcZyQu" class="cta-line">💬 LINE</a>
+</div>
 
 </body>
 </html>
