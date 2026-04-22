@@ -65,6 +65,12 @@ overflow:hidden;
 .slider-wrapper img{
 min-width:100%;
 border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.slider-wrapper img:hover{
+transform:scale(1.03);
 }
 
 .review{
@@ -75,7 +81,6 @@ border-radius:10px;
 opacity:0.5;
 transition:0.3s;
 }
-
 .review.active{
 opacity:1;
 transform:scale(1.02);
@@ -92,7 +97,6 @@ font-size:20px;
 padding:10px;
 cursor:pointer;
 }
-
 .prev{left:5px;}
 .next{right:5px;}
 
@@ -107,22 +111,9 @@ border-radius:50%;
 .dot.active{background:#fff;}
 
 /* ご予約について（小さめ） */
-.reserve-note{
-padding:40px 20px;
-}
-.reserve-note h3{
-font-size:18px;
-font-weight:300;
-margin-bottom:15px;
-opacity:0.9;
-}
-.reserve-info{
-font-size:13px;
-opacity:0.75;
-max-width:520px;
-margin:0 auto;
-line-height:1.7;
-}
+.reserve-note{padding:40px 20px;}
+.reserve-note h3{font-size:18px;font-weight:300;margin-bottom:15px;}
+.reserve-info{font-size:13px;opacity:0.75;max-width:520px;margin:0 auto;line-height:1.7;}
 
 /* 固定CTA */
 .sticky{
@@ -145,7 +136,6 @@ color:#fff;
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <h1>PrimaStella</h1>
 <p>西条で、静かに味わう本物のイタリアン</p>
@@ -158,12 +148,14 @@ color:#fff;
 <h2>料理</h2>
 <div class="slider-container">
 <button class="nav prev" onclick="moveGallery(-1)">‹</button>
+
 <div class="slider-wrapper" id="gallery">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta2.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pizza.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/dessert.jpg">
 </div>
+
 <button class="nav next" onclick="moveGallery(1)">›</button>
 </div>
 <div class="dots" id="gDots"></div>
@@ -174,8 +166,8 @@ color:#fff;
 <h2>選ばれる理由</h2>
 <div class="info">
 <p>・落ち着いた空間でゆっくり食事</p>
-<p>・記念日やデートで選ばれる雰囲気</p>
-<p>・料理とワインのバランス</p>
+<p>・記念日やデートに最適</p>
+<p>・ワインと料理のバランス</p>
 <p>・リピーター多数</p>
 </div>
 </section>
@@ -185,17 +177,19 @@ color:#fff;
 <h2>お客様の声</h2>
 <div class="review-container">
 <button class="nav prev" onclick="moveReview(-1)">‹</button>
+
 <div class="review-wrapper" id="reviewWrapper">
 <div class="review active">★★★★★<br>雰囲気が最高でした</div>
 <div class="review">★★★★★<br>また来たい</div>
 <div class="review">★★★★★<br>料理が美味しい</div>
 </div>
+
 <button class="nav next" onclick="moveReview(1)">›</button>
 </div>
 <div class="dots" id="rDots"></div>
 </section>
 
-<!-- ご予約について（小） -->
+<!-- ご予約注意 -->
 <section class="reserve-note">
 <h3>ご予約について</h3>
 <div class="info reserve-info">
@@ -236,14 +230,13 @@ width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
 <a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
 </section>
 
-<!-- 固定CTA -->
 <div class="sticky">
 <a href="tel:0824233067" class="tel">📞</a>
 <a href="https://lin.ee/NRcZyQu" class="line">LINE</a>
 </div>
 
 <script>
-// 料理
+// 料理スライダー
 let g=0;
 const gallery=document.getElementById('gallery');
 const gDots=document.getElementById('gDots');
@@ -254,21 +247,24 @@ d.className='dot';
 d.onclick=()=>{g=i;updateG();}
 gDots.appendChild(d);
 }
+
 function updateG(){
 gallery.scrollTo({left:g*gallery.offsetWidth,behavior:'smooth'});
 [...gDots.children].forEach(e=>e.classList.remove('active'));
 gDots.children[g].classList.add('active');
 }
+
 function moveGallery(x){
 g+=x;
 if(g<0)g=gallery.children.length-1;
 if(g>=gallery.children.length)g=0;
 updateG();
 }
+
 setInterval(()=>moveGallery(1),4000);
 updateG();
 
-// 口コミ
+// 口コミスライダー
 let r=0;
 const reviews=document.getElementById('reviewWrapper');
 const rDots=document.getElementById('rDots');
@@ -279,19 +275,30 @@ d.className='dot';
 d.onclick=()=>{r=i;updateR();}
 rDots.appendChild(d);
 }
+
 function updateR(){
 reviews.scrollTo({left:r*reviews.offsetWidth,behavior:'smooth'});
 [...rDots.children].forEach(e=>e.classList.remove('active'));
 rDots.children[r].classList.add('active');
 }
+
 function moveReview(x){
 r+=x;
 if(r<0)r=reviews.children.length-1;
 if(r>=reviews.children.length)r=0;
 updateR();
 }
+
 setInterval(()=>moveReview(1),3000);
 updateR();
+
+// ★追加：画像クリックでぐるなびへ
+document.querySelectorAll('#gallery img').forEach(img=>{
+img.addEventListener('click', function(e){
+e.stopPropagation();
+window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
+});
+});
 </script>
 
 </body>
