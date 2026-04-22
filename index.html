@@ -5,30 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PrimaStella｜東広島 西条 イタリアン</title>
-
-<meta name="description" content="西条のイタリアン PrimaStella。記念日・デート・静かな食事に最適なレストラン。">
-<meta name="keywords" content="東広島,西条,イタリアン,ランチ,ディナー,記念日">
-
-<meta property="og:title" content="PrimaStella｜東広島 西条 イタリアン">
-<meta property="og:image" content="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg">
-
-<!-- 構造化データ -->
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"Restaurant",
-"name":"PrimaStella",
-"address":{
-"@type":"PostalAddress",
-"addressLocality":"東広島市西条上市町",
-"addressRegion":"広島県",
-"streetAddress":"6-19"
-},
-"telephone":"0824233067",
-"servesCuisine":"Italian",
-"priceRange":"¥1000-¥5000"
-}
-</script>
+<meta name="description" content="西条のイタリアン PrimaStella。記念日・デート・静かな食事に最適。">
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
@@ -38,14 +15,12 @@ margin:0;
 font-family:'Noto Sans JP',serif;
 background:#0b0b0b;
 color:#f5f5f5;
-letter-spacing:0.5px;
 }
 
-/* HERO */
 .hero{
 height:100vh;
 background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.75)),
+linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
 url("https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg")
 center/cover;
 display:flex;
@@ -53,116 +28,118 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:40px;
 }
 
-.hero h1{
-font-size:54px;
-font-weight:300;
-margin:0;
-letter-spacing:4px;
-}
+.hero h1{font-size:54px;letter-spacing:4px;font-weight:300;}
+.hero p{opacity:0.8;}
 
-.hero p{
-font-size:15px;
-opacity:0.85;
-margin-top:10px;
-}
-
-/* BUTTON */
 .btn{
-margin:12px;
-padding:14px 26px;
-border-radius:50px;
-text-decoration:none;
 display:inline-block;
-font-size:15px;
-width:80%;
-max-width:320px;
-text-align:center;
-border:1px solid rgba(255,255,255,0.2);
+margin:10px;
+padding:14px 24px;
+border-radius:30px;
+text-decoration:none;
 color:#fff;
-backdrop-filter:blur(6px);
+border:1px solid rgba(255,255,255,0.2);
 }
+.line{background:rgba(0,195,0,0.2);}
+.tel{background:rgba(233,30,99,0.2);}
 
-.tel{background:rgba(233,30,99,0.15);}
-.line{background:rgba(0,195,0,0.15);}
-.ig{background:rgba(255,255,255,0.05);}
+section{padding:70px 20px;text-align:center;}
+h2{font-weight:300;margin-bottom:25px;}
 
-/* SECTION */
-section{
-padding:80px 20px;
-text-align:center;
-}
-
-h2{
-font-weight:300;
-letter-spacing:2px;
-margin-bottom:30px;
-}
-
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:15px;
-}
-
-.gallery img{
-width:100%;
-border-radius:12px;
-filter:brightness(0.95) contrast(1.05);
-}
-
-/* INFO */
 .info{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
-padding:25px;
-border-radius:12px;
+background:rgba(255,255,255,0.05);
+padding:20px;
+border-radius:10px;
 text-align:left;
 line-height:1.8;
 }
 
-/* REVIEW */
-.review-wrapper{
+.slider-container,.review-container{position:relative;}
+.slider-wrapper,.review-wrapper{
 display:flex;
-overflow-x:auto;
-gap:20px;
-scroll-snap-type:x mandatory;
-padding:10px 0;
+overflow:hidden;
+}
+
+.slider-wrapper img{
+min-width:100%;
+border-radius:10px;
 }
 
 .review{
-min-width:75%;
-scroll-snap-align:center;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
-padding:25px;
-border-radius:12px;
-text-align:left;
+min-width:100%;
+padding:20px;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+opacity:0.5;
+transition:0.3s;
 }
 
-/* STICKY CTA */
-.sticky-cta{
+.review.active{
+opacity:1;
+transform:scale(1.02);
+}
+
+.nav{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+border:none;
+color:#fff;
+font-size:20px;
+padding:10px;
+cursor:pointer;
+}
+
+.prev{left:5px;}
+.next{right:5px;}
+
+.dots{text-align:center;margin-top:10px;}
+.dot{
+display:inline-block;
+width:8px;height:8px;
+background:#666;
+margin:5px;
+border-radius:50%;
+}
+.dot.active{background:#fff;}
+
+/* ご予約について（小さめ） */
+.reserve-note{
+padding:40px 20px;
+}
+.reserve-note h3{
+font-size:18px;
+font-weight:300;
+margin-bottom:15px;
+opacity:0.9;
+}
+.reserve-info{
+font-size:13px;
+opacity:0.75;
+max-width:520px;
+margin:0 auto;
+line-height:1.7;
+}
+
+/* 固定CTA */
+.sticky{
 position:fixed;
 bottom:0;
-left:0;
 width:100%;
 display:flex;
-z-index:999;
 }
-
-.sticky-cta a{
+.sticky a{
 flex:1;
-padding:16px;
+padding:15px;
 text-align:center;
 text-decoration:none;
-font-size:14px;
+color:#fff;
 }
-
-.cta-tel{background:#1a1a1a;}
-.cta-line{background:#111;border-left:1px solid #333;}
+.sticky .line{background:#00c300;}
+.sticky .tel{background:#111;}
 </style>
 </head>
 
@@ -172,68 +149,68 @@ font-size:14px;
 <section class="hero">
 <h1>PrimaStella</h1>
 <p>西条で、静かに味わう本物のイタリアン</p>
-
 <a href="tel:0824233067" class="btn tel">📞 電話予約</a>
 <a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
-<a href="https://www.instagram.com/primastella2020" class="btn ig">📸 Instagram</a>
 </section>
 
-<!-- MENU -->
+<!-- 料理 -->
 <section>
 <h2>料理</h2>
-<div class="gallery">
+<div class="slider-container">
+<button class="nav prev" onclick="moveGallery(-1)">‹</button>
+<div class="slider-wrapper" id="gallery">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta2.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pizza.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/dessert.jpg">
 </div>
+<button class="nav next" onclick="moveGallery(1)">›</button>
+</div>
+<div class="dots" id="gDots"></div>
 </section>
 
-<!-- FEATURES -->
+<!-- 選ばれる理由 -->
 <section>
 <h2>選ばれる理由</h2>
 <div class="info">
 <p>・落ち着いた空間でゆっくり食事</p>
-<p>・記念日・デート利用多数</p>
-<p>・ワインと料理のバランス</p>
-<p>・地元リピーター多数</p>
+<p>・記念日やデートで選ばれる雰囲気</p>
+<p>・料理とワインのバランス</p>
+<p>・リピーター多数</p>
 </div>
 </section>
 
-<!-- REVIEWS -->
+<!-- 口コミ -->
 <section>
 <h2>お客様の声</h2>
-
-<div class="review-wrapper">
-
-<div class="review">
-<strong>★★★★★</strong><br>
-デートで使ったけど雰囲気が最高でした
+<div class="review-container">
+<button class="nav prev" onclick="moveReview(-1)">‹</button>
+<div class="review-wrapper" id="reviewWrapper">
+<div class="review active">★★★★★<br>雰囲気が最高でした</div>
+<div class="review">★★★★★<br>また来たい</div>
+<div class="review">★★★★★<br>料理が美味しい</div>
 </div>
-
-<div class="review">
-<strong>★★★★★</strong><br>
-ランチのコスパが良くてまた来たい
+<button class="nav next" onclick="moveReview(1)">›</button>
 </div>
+<div class="dots" id="rDots"></div>
+</section>
 
-<div class="review">
-<strong>★★★★★</strong><br>
-料理の完成度が高くて満足
-</div>
-
+<!-- ご予約について（小） -->
+<section class="reserve-note">
+<h3>ご予約について</h3>
+<div class="info reserve-info">
+<p>※週末は満席になる場合がございます</p>
+<p>※ディナーは数組限定でご案内しております</p>
 </div>
 </section>
 
-<!-- URGENCY -->
+<!-- Google -->
 <section>
-<h2>ご予約について</h2>
-<div class="info">
-<p>※週末は満席になることがあります</p>
-<p>※ディナーは数組限定でご案内</p>
-</div>
+<h2>Google評価</h2>
+<a href="https://www.google.com/search?q=PrimaStella+東広島" target="_blank" class="btn">レビューを見る</a>
 </section>
 
-<!-- INFO -->
+<!-- 店舗情報 -->
 <section>
 <h2>店舗情報</h2>
 <div class="info">
@@ -248,9 +225,8 @@ font-size:14px;
 <!-- MAP -->
 <section>
 <h2>アクセス</h2>
-<iframe
-src="https://maps.google.com/maps?q=東広島市西条上市町6-19 2F&t=&z=15&ie=UTF8&iwloc=&output=embed"
-width="100%" height="300" style="border-radius:12px;border:0;"></iframe>
+<iframe src="https://maps.google.com/maps?q=東広島市西条上市町6-19 2F&output=embed"
+width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
 </section>
 
 <!-- CTA -->
@@ -260,11 +236,63 @@ width="100%" height="300" style="border-radius:12px;border:0;"></iframe>
 <a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
 </section>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta">
-<a href="tel:0824233067" class="cta-tel">📞 電話</a>
-<a href="https://lin.ee/NRcZyQu" class="cta-line">💬 LINE</a>
+<!-- 固定CTA -->
+<div class="sticky">
+<a href="tel:0824233067" class="tel">📞</a>
+<a href="https://lin.ee/NRcZyQu" class="line">LINE</a>
 </div>
+
+<script>
+// 料理
+let g=0;
+const gallery=document.getElementById('gallery');
+const gDots=document.getElementById('gDots');
+
+for(let i=0;i<gallery.children.length;i++){
+let d=document.createElement('span');
+d.className='dot';
+d.onclick=()=>{g=i;updateG();}
+gDots.appendChild(d);
+}
+function updateG(){
+gallery.scrollTo({left:g*gallery.offsetWidth,behavior:'smooth'});
+[...gDots.children].forEach(e=>e.classList.remove('active'));
+gDots.children[g].classList.add('active');
+}
+function moveGallery(x){
+g+=x;
+if(g<0)g=gallery.children.length-1;
+if(g>=gallery.children.length)g=0;
+updateG();
+}
+setInterval(()=>moveGallery(1),4000);
+updateG();
+
+// 口コミ
+let r=0;
+const reviews=document.getElementById('reviewWrapper');
+const rDots=document.getElementById('rDots');
+
+for(let i=0;i<reviews.children.length;i++){
+let d=document.createElement('span');
+d.className='dot';
+d.onclick=()=>{r=i;updateR();}
+rDots.appendChild(d);
+}
+function updateR(){
+reviews.scrollTo({left:r*reviews.offsetWidth,behavior:'smooth'});
+[...rDots.children].forEach(e=>e.classList.remove('active'));
+rDots.children[r].classList.add('active');
+}
+function moveReview(x){
+r+=x;
+if(r<0)r=reviews.children.length-1;
+if(r>=reviews.children.length)r=0;
+updateR();
+}
+setInterval(()=>moveReview(1),3000);
+updateR();
+</script>
 
 </body>
 </html>
