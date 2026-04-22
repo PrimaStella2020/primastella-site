@@ -17,6 +17,49 @@ color:#fff;
 padding-bottom:60px;
 }
 
+/* ハンバーガー */
+.hamburger{
+position:fixed;
+top:15px;
+right:15px;
+width:28px;
+height:22px;
+z-index:1000;
+cursor:pointer;
+background:rgba(0,0,0,0.5);
+padding:6px;
+border-radius:6px;
+}
+.hamburger span{
+display:block;
+height:3px;
+background:#fff;
+margin:5px 0;
+}
+
+/* メニュー */
+.menu{
+position:fixed;
+top:0;
+right:-100%;
+width:70%;
+height:100%;
+background:#111;
+padding:60px 20px;
+transition:0.3s;
+z-index:999;
+}
+.menu a{
+display:block;
+color:#fff;
+margin:15px 0;
+text-decoration:none;
+font-size:16px;
+}
+.menu.active{
+right:0;
+}
+
 /* HERO */
 .hero{
 height:60vh;
@@ -30,7 +73,6 @@ linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
 url("https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg")
 center/cover;
 }
-
 .hero h1{font-size:26px;}
 .hero p{font-size:13px;}
 
@@ -55,7 +97,6 @@ section{
 padding:35px 15px;
 text-align:center;
 }
-
 h2{font-size:18px;}
 
 .info{
@@ -115,8 +156,23 @@ font-size:14px;
 
 <body>
 
+<!-- 三本線 -->
+<div class="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+
+<!-- メニュー -->
+<div class="menu" id="menu">
+<a href="#top">トップ</a>
+<a href="#gallery">料理</a>
+<a href="#reviews">口コミ</a>
+<a href="#info">店舗情報</a>
+<a href="https://lin.ee/NRcZyQu">LINE予約</a>
+<a href="https://r.gnavi.co.jp/46jvg7pw0000/" target="_blank">ぐるなび</a>
+</div>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
 <h1>PrimaStella</h1>
 <p>西条で静かに味わう本物のイタリアン</p>
 
@@ -154,7 +210,7 @@ font-size:14px;
 </section>
 
 <!-- 口コミ -->
-<section>
+<section id="reviews">
 <h2>口コミ</h2>
 
 <div class="review" onclick="openReview()">★★★★★ 雰囲気が最高でした</div>
@@ -162,34 +218,49 @@ font-size:14px;
 <div class="review" onclick="openReview()">★★★★★ 料理が美味しい</div>
 <div class="review" onclick="openReview()">★★★★★ 記念日に最適</div>
 
-<a href="#" onclick="openReview()" class="btn review-btn">口コミを見る</a>
-<a href="https://g.page/r/CaqPutaNiAa_EAE/review" target="_blank" class="btn">
-口コミを投稿する（1分で完了）
+<a href="https://www.google.com/search?q=PrimaStella+東広島" target="_blank" class="btn review-btn">
+口コミを見る
 </a>
 
+<a href="https://g.page/r/CaqPutaNiAa_EAE/review" target="_blank" class="btn">
+★★★★★ 口コミを投稿する（1分で完了）
+</a>
 </section>
 
-<!-- ご予約について（復活） -->
+<!-- 口コミ依頼 -->
+<section>
+<h2>ご協力のお願い</h2>
+<div class="info">
+<p>本日はご来店ありがとうございます。</p>
+<p>もしよろしければ、ご感想を口コミでいただけると励みになります。</p>
+<p>※1分ほどで簡単に投稿できます</p>
+</div>
+<a href="https://g.page/r/CaqPutaNiAa_EAE/review" target="_blank" class="btn review-btn">
+口コミを投稿する
+</a>
+</section>
+
+<!-- ご予約について -->
 <section>
 <h2>ご予約について</h2>
 <div class="info">
 <p>※週末は満席になる場合があります</p>
 <p>※ディナーは数組限定でご案内しております</p>
-<p>※グループでのご利用やご宴会も歓迎しております（最大人数30名様程）</p>
+<p>※グループでのご利用やご宴会も歓迎（最大30名様程度）</p>
 <p>※事前予約をおすすめしております</p>
 </div>
 </section>
 
 <!-- 店舗情報 -->
-<section>
+<section id="info">
 <h2>店舗情報</h2>
 <div class="info">
 <p>住所：広島県東広島市西条上市町6-19 2F</p>
 <p>電話：082-423-3067</p>
 
 <p>営業時間：<br>
-ランチ 11:30〜14:30（LO 14：00）<br>
-ディナー 17:30〜21:00（LO 20：00）</p>
+ランチ 11:30〜14:30（LO 14:00）<br>
+ディナー 17:30〜21:00（LO 20:00）</p>
 
 <p>定休日：火曜・第2月曜</p>
 </div>
@@ -215,15 +286,17 @@ width="100%" height="250"></iframe>
 </div>
 
 <script>
-// 画像クリック → メニュー
-document.querySelectorAll('#gallery img').forEach(img=>{
-img.onclick=()=>window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
-});
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
 
-// 口コミ → Google等へ
 function openReview(){
 window.open("https://www.google.com/search?q=PrimaStella+東広島","_blank");
 }
+
+document.querySelectorAll('#gallery img').forEach(img=>{
+img.onclick=()=>window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
+});
 </script>
 
 </body>
