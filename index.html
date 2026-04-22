@@ -48,6 +48,7 @@ font-size:14px;
 .line{background:#00c300;}
 .tel{background:#333;}
 .insta{background:#E1306C;}
+.review-btn{background:#4285F4;}
 
 /* セクション */
 section{
@@ -87,6 +88,7 @@ padding:12px;
 margin:8px 0;
 border-radius:10px;
 font-size:13px;
+cursor:pointer;
 }
 
 /* 下固定CTA */
@@ -120,7 +122,7 @@ font-size:14px;
 
 <a href="https://lin.ee/NRcZyQu" class="btn line">LINEで予約する</a>
 <a href="tel:0824233067" class="btn tel">電話予約</a>
-<a href="https://www.instagram.com/primastella2020" class="btn insta">Instagramを見る</a>
+<a href="https://www.instagram.com/primastella2020" class="btn insta">Instagram</a>
 </section>
 
 <!-- 料理 -->
@@ -139,26 +141,41 @@ font-size:14px;
 <a href="https://lin.ee/NRcZyQu" class="btn line">空き確認・予約する</a>
 </section>
 
-<!-- 選ばれる理由（復活） -->
+<!-- 選ばれる理由 -->
 <section>
 <h2>選ばれる理由</h2>
 <div class="info">
 <p>・落ち着いた空間でゆっくり食事ができる</p>
-<p>・デート・記念日など特別な日に最適</p>
+<p>・デート・記念日に最適</p>
 <p>・料理とワインのバランスにこだわり</p>
-<p>・リピーターが多く常連客に支持されている</p>
-<p>・静かに過ごせる大人向けの雰囲気</p>
+<p>・リピーター多数</p>
+<p>・大人向けの雰囲気</p>
 </div>
 </section>
 
-<!-- 口コミ（復活） -->
+<!-- 口コミ -->
 <section>
 <h2>口コミ</h2>
-<div class="review">★★★★★ デートで利用しましたが雰囲気が最高でした</div>
-<div class="review">★★★★★ ランチがコスパ良くてまた来たいです</div>
-<div class="review">★★★★★ 料理が全部美味しくてリピート確定です</div>
-<div class="review">★★★★★ 店内が落ち着いていて居心地が良い</div>
-<div class="review">★★★★★ 記念日で利用して大満足でした</div>
+
+<div class="review" onclick="openReview()">★★★★★ 雰囲気が最高でした</div>
+<div class="review" onclick="openReview()">★★★★★ また来たいです</div>
+<div class="review" onclick="openReview()">★★★★★ 料理が美味しい</div>
+<div class="review" onclick="openReview()">★★★★★ 記念日に最適</div>
+
+<a href="#" onclick="openReview()" class="btn review-btn">口コミを見る</a>
+<a href="#" onclick="openReview()" class="btn">口コミを投稿する</a>
+
+</section>
+
+<!-- ご予約について（復活） -->
+<section>
+<h2>ご予約について</h2>
+<div class="info">
+<p>※週末は満席になる場合があります</p>
+<p>※ディナーは数組限定でご案内しております</p>
+<p>※グループでのご利用やご宴会も歓迎しております（最大人数30名様程）</p>
+<p>※事前予約をおすすめしております</p>
+</div>
 </section>
 
 <!-- 店舗情報 -->
@@ -200,6 +217,11 @@ width="100%" height="250"></iframe>
 document.querySelectorAll('#gallery img').forEach(img=>{
 img.onclick=()=>window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
 });
+
+// 口コミ → Google等へ
+function openReview(){
+window.open("https://www.google.com/search?q=PrimaStella+東広島","_blank");
+}
 </script>
 
 </body>
