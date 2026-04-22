@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PrimaStella｜東広島 西条 イタリアン</title>
-<meta name="description" content="西条のイタリアン PrimaStella。記念日・デート・静かな食事に最適。">
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
 
@@ -14,9 +13,27 @@ body{
 margin:0;
 font-family:'Noto Sans JP',serif;
 background:#0b0b0b;
-color:#f5f5f5;
+color:#fff;
 }
 
+/* ナビ */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#111;
+padding:12px;
+text-align:center;
+z-index:999;
+}
+nav a{
+color:#fff;
+margin:0 12px;
+text-decoration:none;
+font-size:14px;
+}
+
+/* HERO */
 .hero{
 height:100vh;
 background:
@@ -30,33 +47,38 @@ align-items:center;
 text-align:center;
 }
 
-.hero h1{font-size:54px;letter-spacing:4px;font-weight:300;}
+.hero h1{font-size:50px;font-weight:300;}
 .hero p{opacity:0.8;}
 
 .btn{
 display:inline-block;
 margin:10px;
-padding:14px 24px;
+padding:12px 22px;
 border-radius:30px;
 text-decoration:none;
 color:#fff;
 border:1px solid rgba(255,255,255,0.2);
 }
-.line{background:rgba(0,195,0,0.2);}
-.tel{background:rgba(233,30,99,0.2);}
 
-section{padding:70px 20px;text-align:center;}
-h2{font-weight:300;margin-bottom:25px;}
+.line{background:#00c300;}
+.tel{background:#222;}
+
+section{
+padding:70px 20px;
+text-align:center;
+scroll-margin-top:70px;
+}
+
+h2{font-weight:300;}
 
 .info{
 background:rgba(255,255,255,0.05);
 padding:20px;
 border-radius:10px;
 text-align:left;
-line-height:1.8;
 }
 
-.slider-container,.review-container{position:relative;}
+/* スライダー */
 .slider-wrapper,.review-wrapper{
 display:flex;
 overflow:hidden;
@@ -68,10 +90,7 @@ border-radius:10px;
 cursor:pointer;
 transition:0.3s;
 }
-
-.slider-wrapper img:hover{
-transform:scale(1.03);
-}
+.slider-wrapper img:hover{transform:scale(1.03);}
 
 .review{
 min-width:100%;
@@ -79,23 +98,17 @@ padding:20px;
 background:rgba(255,255,255,0.05);
 border-radius:10px;
 opacity:0.5;
-transition:0.3s;
 }
-.review.active{
-opacity:1;
-transform:scale(1.02);
-}
+.review.active{opacity:1;}
 
-.nav{
+.nav-btn{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-border:none;
+background:#000;
 color:#fff;
-font-size:20px;
+border:none;
 padding:10px;
-cursor:pointer;
 }
 .prev{left:5px;}
 .next{right:5px;}
@@ -110,12 +123,9 @@ border-radius:50%;
 }
 .dot.active{background:#fff;}
 
-/* ご予約について（小さめ） */
 .reserve-note{padding:40px 20px;}
-.reserve-note h3{font-size:18px;font-weight:300;margin-bottom:15px;}
-.reserve-info{font-size:13px;opacity:0.75;max-width:520px;margin:0 auto;line-height:1.7;}
+.reserve-info{font-size:13px;opacity:0.7;}
 
-/* 固定CTA */
 .sticky{
 position:fixed;
 bottom:0;
@@ -126,28 +136,34 @@ display:flex;
 flex:1;
 padding:15px;
 text-align:center;
-text-decoration:none;
 color:#fff;
+text-decoration:none;
 }
-.sticky .line{background:#00c300;}
-.sticky .tel{background:#111;}
 </style>
 </head>
 
 <body>
 
+<!-- ナビ -->
+<nav>
+<a href="#menu">メニュー</a>
+<a href="#reviews">口コミ</a>
+<a href="#info">店舗情報</a>
+</nav>
+
+<!-- HERO -->
 <section class="hero">
 <h1>PrimaStella</h1>
 <p>西条で、静かに味わう本物のイタリアン</p>
-<a href="tel:0824233067" class="btn tel">📞 電話予約</a>
-<a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
+<a href="tel:0824233067" class="btn tel">電話予約</a>
+<a href="https://lin.ee/NRcZyQu" class="btn line">LINE予約</a>
 </section>
 
 <!-- 料理 -->
 <section>
 <h2>料理</h2>
-<div class="slider-container">
-<button class="nav prev" onclick="moveGallery(-1)">‹</button>
+<div style="position:relative;">
+<button class="nav-btn prev" onclick="moveGallery(-1)">‹</button>
 
 <div class="slider-wrapper" id="gallery">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg">
@@ -156,78 +172,76 @@ color:#fff;
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/dessert.jpg">
 </div>
 
-<button class="nav next" onclick="moveGallery(1)">›</button>
+<button class="nav-btn next" onclick="moveGallery(1)">›</button>
 </div>
+
 <div class="dots" id="gDots"></div>
+</section>
+
+<!-- メニュー -->
+<section id="menu">
+<h2>メニュー</h2>
+<div class="info">
+<h3>パスタ</h3><p>¥1,200〜</p>
+<h3>ピッツァ</h3><p>¥1,300〜</p>
+<h3>コース</h3><p>¥3,000〜</p>
+</div>
+
+<a href="https://r.gnavi.co.jp/46jvg7pw0000/menu3/" target="_blank" class="btn">
+詳しいメニューを見る
+</a>
 </section>
 
 <!-- 選ばれる理由 -->
 <section>
 <h2>選ばれる理由</h2>
 <div class="info">
-<p>・落ち着いた空間でゆっくり食事</p>
-<p>・記念日やデートに最適</p>
-<p>・ワインと料理のバランス</p>
-<p>・リピーター多数</p>
+<p>落ち着いた空間</p>
+<p>デート・記念日に最適</p>
+<p>料理とワインのバランス</p>
+<p>リピーター多数</p>
 </div>
 </section>
 
 <!-- 口コミ -->
-<section>
-<h2>お客様の声</h2>
-<div class="review-container">
-<button class="nav prev" onclick="moveReview(-1)">‹</button>
-
+<section id="reviews">
+<h2>口コミ</h2>
 <div class="review-wrapper" id="reviewWrapper">
-<div class="review active">★★★★★<br>雰囲気が最高でした</div>
-<div class="review">★★★★★<br>また来たい</div>
-<div class="review">★★★★★<br>料理が美味しい</div>
-</div>
-
-<button class="nav next" onclick="moveReview(1)">›</button>
+<div class="review active">★★★★★ 雰囲気が最高</div>
+<div class="review">★★★★★ また来たい</div>
+<div class="review">★★★★★ 美味しい</div>
 </div>
 <div class="dots" id="rDots"></div>
 </section>
 
-<!-- ご予約注意 -->
+<!-- 予約注意 -->
 <section class="reserve-note">
 <h3>ご予約について</h3>
 <div class="info reserve-info">
-<p>※週末は満席になる場合がございます</p>
-<p>※ディナーは数組限定でご案内しております</p>
+<p>週末は満席になる場合があります</p>
 </div>
 </section>
 
-<!-- Google -->
-<section>
-<h2>Google評価</h2>
-<a href="https://www.google.com/search?q=PrimaStella+東広島" target="_blank" class="btn">レビューを見る</a>
-</section>
-
 <!-- 店舗情報 -->
-<section>
+<section id="info">
 <h2>店舗情報</h2>
 <div class="info">
 <p>広島県東広島市西条上市町6-19 2F</p>
 <p>082-423-3067</p>
-<p>ランチ 11:30〜14:30</p>
-<p>ディナー 17:30〜21:00</p>
-<p>火曜・第2月曜定休</p>
 </div>
 </section>
 
 <!-- MAP -->
 <section>
-<h2>アクセス</h2>
 <iframe src="https://maps.google.com/maps?q=東広島市西条上市町6-19 2F&output=embed"
-width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
+width="100%" height="300"></iframe>
 </section>
 
 <!-- CTA -->
 <section>
 <h2>ご予約</h2>
-<a href="tel:0824233067" class="btn tel">📞 電話予約</a>
-<a href="https://lin.ee/NRcZyQu" class="btn line">💬 LINE予約</a>
+<a href="tel:0824233067" class="btn tel">電話</a>
+<a href="https://lin.ee/NRcZyQu" class="btn line">LINE</a>
 </section>
 
 <div class="sticky">
@@ -236,68 +250,19 @@ width="100%" height="300" style="border:0;border-radius:10px;"></iframe>
 </div>
 
 <script>
-// 料理スライダー
+// スライダー
 let g=0;
 const gallery=document.getElementById('gallery');
-const gDots=document.getElementById('gDots');
-
-for(let i=0;i<gallery.children.length;i++){
-let d=document.createElement('span');
-d.className='dot';
-d.onclick=()=>{g=i;updateG();}
-gDots.appendChild(d);
-}
-
-function updateG(){
-gallery.scrollTo({left:g*gallery.offsetWidth,behavior:'smooth'});
-[...gDots.children].forEach(e=>e.classList.remove('active'));
-gDots.children[g].classList.add('active');
-}
-
 function moveGallery(x){
 g+=x;
 if(g<0)g=gallery.children.length-1;
 if(g>=gallery.children.length)g=0;
-updateG();
+gallery.scrollTo({left:g*gallery.offsetWidth,behavior:'smooth'});
 }
 
-setInterval(()=>moveGallery(1),4000);
-updateG();
-
-// 口コミスライダー
-let r=0;
-const reviews=document.getElementById('reviewWrapper');
-const rDots=document.getElementById('rDots');
-
-for(let i=0;i<reviews.children.length;i++){
-let d=document.createElement('span');
-d.className='dot';
-d.onclick=()=>{r=i;updateR();}
-rDots.appendChild(d);
-}
-
-function updateR(){
-reviews.scrollTo({left:r*reviews.offsetWidth,behavior:'smooth'});
-[...rDots.children].forEach(e=>e.classList.remove('active'));
-rDots.children[r].classList.add('active');
-}
-
-function moveReview(x){
-r+=x;
-if(r<0)r=reviews.children.length-1;
-if(r>=reviews.children.length)r=0;
-updateR();
-}
-
-setInterval(()=>moveReview(1),3000);
-updateR();
-
-// ★追加：画像クリックでぐるなびへ
+// 画像クリック → ぐるなび
 document.querySelectorAll('#gallery img').forEach(img=>{
-img.addEventListener('click', function(e){
-e.stopPropagation();
-window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
-});
+img.onclick=()=>window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
 });
 </script>
 
