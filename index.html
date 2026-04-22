@@ -22,20 +22,20 @@ position:fixed;
 top:0;
 width:100%;
 background:#111;
-padding:12px;
+padding:10px;
 text-align:center;
 z-index:999;
 }
 nav a{
 color:#fff;
-margin:0 12px;
+margin:0 10px;
 text-decoration:none;
-font-size:14px;
+font-size:13px;
 }
 
 /* HERO */
 .hero{
-height:100vh;
+height:70vh;
 background:
 linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
 url("https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/interior.jpg")
@@ -46,86 +46,70 @@ justify-content:center;
 align-items:center;
 text-align:center;
 }
-
-.hero h1{font-size:50px;font-weight:300;}
-.hero p{opacity:0.8;}
+.hero h1{font-size:28px;}
+.hero p{font-size:13px;}
 
 .btn{
 display:inline-block;
-margin:10px;
-padding:12px 22px;
+margin:6px;
+padding:10px 14px;
 border-radius:30px;
 text-decoration:none;
 color:#fff;
 border:1px solid rgba(255,255,255,0.2);
+font-size:13px;
 }
-
 .line{background:#00c300;}
 .tel{background:#222;}
 
 section{
-padding:70px 20px;
+padding:40px 15px;
 text-align:center;
-scroll-margin-top:70px;
+scroll-margin-top:60px;
 }
 
-h2{font-weight:300;}
+h2{
+font-size:20px;
+margin-bottom:15px;
+font-weight:300;
+}
 
 .info{
 background:rgba(255,255,255,0.05);
-padding:20px;
+padding:15px;
 border-radius:10px;
 text-align:left;
+font-size:13px;
 }
 
-/* スライダー */
-.slider-wrapper,.review-wrapper{
+/* 画像 */
+.slider-wrapper{
+display:flex;
+overflow:hidden;
+height:180px;
+}
+.slider-wrapper img{
+min-width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* 口コミ */
+.review-wrapper{
 display:flex;
 overflow:hidden;
 }
-
-.slider-wrapper img{
-min-width:100%;
-border-radius:10px;
-cursor:pointer;
-transition:0.3s;
-}
-.slider-wrapper img:hover{transform:scale(1.03);}
-
 .review{
 min-width:100%;
-padding:20px;
+padding:15px;
 background:rgba(255,255,255,0.05);
 border-radius:10px;
-opacity:0.5;
+font-size:13px;
 }
-.review.active{opacity:1;}
 
-.nav-btn{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:#000;
-color:#fff;
-border:none;
-padding:10px;
-}
-.prev{left:5px;}
-.next{right:5px;}
-
-.dots{text-align:center;margin-top:10px;}
-.dot{
-display:inline-block;
-width:8px;height:8px;
-background:#666;
-margin:5px;
-border-radius:50%;
-}
-.dot.active{background:#fff;}
-
-.reserve-note{padding:40px 20px;}
-.reserve-info{font-size:13px;opacity:0.7;}
-
+/* 固定CTA */
 .sticky{
 position:fixed;
 bottom:0;
@@ -134,24 +118,25 @@ display:flex;
 }
 .sticky a{
 flex:1;
-padding:15px;
+padding:12px;
 text-align:center;
 color:#fff;
 text-decoration:none;
+font-size:14px;
 }
+.sticky .line{background:#00c300;}
+.sticky .tel{background:#111;}
 </style>
 </head>
 
 <body>
 
-<!-- ナビ -->
 <nav>
 <a href="#menu">メニュー</a>
 <a href="#reviews">口コミ</a>
 <a href="#info">店舗情報</a>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
 <h1>PrimaStella</h1>
 <p>西条で、静かに味わう本物のイタリアン</p>
@@ -159,70 +144,52 @@ text-decoration:none;
 <a href="https://lin.ee/NRcZyQu" class="btn line">LINE予約</a>
 </section>
 
-<!-- 料理 -->
 <section>
 <h2>料理</h2>
-<div style="position:relative;">
-<button class="nav-btn prev" onclick="moveGallery(-1)">‹</button>
-
 <div class="slider-wrapper" id="gallery">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta1.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pasta2.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/pizza.jpg">
 <img src="https://raw.githubusercontent.com/PrimaStella2020/primastella-site/main/dessert.jpg">
 </div>
-
-<button class="nav-btn next" onclick="moveGallery(1)">›</button>
-</div>
-
-<div class="dots" id="gDots"></div>
 </section>
 
-<!-- メニュー -->
 <section id="menu">
 <h2>メニュー</h2>
 <div class="info">
-<h3>パスタ</h3><p>¥1,200〜</p>
-<h3>ピッツァ</h3><p>¥1,300〜</p>
-<h3>コース</h3><p>¥3,000〜</p>
+<p>パスタ ¥1,200〜</p>
+<p>ピッツァ ¥1,300〜</p>
+<p>コース ¥3,000〜</p>
 </div>
-
-<a href="https://r.gnavi.co.jp/46jvg7pw0000/menu3/" target="_blank" class="btn">
-詳しいメニューを見る
-</a>
+<a href="https://r.gnavi.co.jp/46jvg7pw0000/menu3/" target="_blank" class="btn">詳細を見る</a>
 </section>
 
-<!-- 選ばれる理由 -->
 <section>
 <h2>選ばれる理由</h2>
 <div class="info">
 <p>落ち着いた空間</p>
 <p>デート・記念日に最適</p>
-<p>料理とワインのバランス</p>
+<p>ワインと料理のバランス</p>
 <p>リピーター多数</p>
 </div>
 </section>
 
-<!-- 口コミ -->
 <section id="reviews">
 <h2>口コミ</h2>
-<div class="review-wrapper" id="reviewWrapper">
-<div class="review active">★★★★★ 雰囲気が最高</div>
+<div class="review-wrapper">
+<div class="review">★★★★★ 雰囲気が最高</div>
 <div class="review">★★★★★ また来たい</div>
 <div class="review">★★★★★ 美味しい</div>
 </div>
-<div class="dots" id="rDots"></div>
 </section>
 
-<!-- 予約注意 -->
-<section class="reserve-note">
+<section>
 <h3>ご予約について</h3>
-<div class="info reserve-info">
-<p>週末は満席になる場合があります</p>
+<div class="info">
+<p>※週末は満席の場合あり</p>
 </div>
 </section>
 
-<!-- 店舗情報 -->
 <section id="info">
 <h2>店舗情報</h2>
 <div class="info">
@@ -231,13 +198,11 @@ text-decoration:none;
 </div>
 </section>
 
-<!-- MAP -->
 <section>
 <iframe src="https://maps.google.com/maps?q=東広島市西条上市町6-19 2F&output=embed"
-width="100%" height="300"></iframe>
+width="100%" height="250"></iframe>
 </section>
 
-<!-- CTA -->
 <section>
 <h2>ご予約</h2>
 <a href="tel:0824233067" class="btn tel">電話</a>
@@ -250,16 +215,6 @@ width="100%" height="300"></iframe>
 </div>
 
 <script>
-// スライダー
-let g=0;
-const gallery=document.getElementById('gallery');
-function moveGallery(x){
-g+=x;
-if(g<0)g=gallery.children.length-1;
-if(g>=gallery.children.length)g=0;
-gallery.scrollTo({left:g*gallery.offsetWidth,behavior:'smooth'});
-}
-
 // 画像クリック → ぐるなび
 document.querySelectorAll('#gallery img').forEach(img=>{
 img.onclick=()=>window.open("https://r.gnavi.co.jp/46jvg7pw0000/menu3/","_blank");
