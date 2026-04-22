@@ -17,49 +17,6 @@ color:#fff;
 padding-bottom:60px;
 }
 
-/* ハンバーガー */
-.hamburger{
-position:fixed;
-top:15px;
-right:15px;
-width:28px;
-height:22px;
-z-index:1000;
-cursor:pointer;
-background:rgba(0,0,0,0.5);
-padding:6px;
-border-radius:6px;
-}
-.hamburger span{
-display:block;
-height:3px;
-background:#fff;
-margin:5px 0;
-}
-
-/* メニュー */
-.menu{
-position:fixed;
-top:0;
-right:-100%;
-width:70%;
-height:100%;
-background:#111;
-padding:60px 20px;
-transition:0.3s;
-z-index:999;
-}
-.menu a{
-display:block;
-color:#fff;
-margin:15px 0;
-text-decoration:none;
-font-size:16px;
-}
-.menu.active{
-right:0;
-}
-
 /* HERO */
 .hero{
 height:60vh;
@@ -155,21 +112,6 @@ font-size:14px;
 </head>
 
 <body>
-
-<!-- 三本線 -->
-<div class="hamburger" onclick="toggleMenu()">
-<span></span><span></span><span></span>
-</div>
-
-<!-- メニュー -->
-<div class="menu" id="menu">
-<a href="#top">トップ</a>
-<a href="#gallery">料理</a>
-<a href="#reviews">口コミ</a>
-<a href="#info">店舗情報</a>
-<a href="https://lin.ee/NRcZyQu">LINE予約</a>
-<a href="https://r.gnavi.co.jp/46jvg7pw0000/" target="_blank">ぐるなび</a>
-</div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -286,10 +228,6 @@ width="100%" height="250"></iframe>
 </div>
 
 <script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-}
-
 function openReview(){
 window.open("https://www.google.com/search?q=PrimaStella+東広島","_blank");
 }
